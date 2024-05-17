@@ -12,7 +12,8 @@ module.exports.getQuestionNumbers = async (req, res) => {
         throw error;
       }
       const topicNames = await getSubtopicNames(q);
-      return await getQuestionsOfTopics(topicNames);
+      const questionNumbers = await getQuestionsOfTopics(topicNames);
+      return res.status(200).json(questionNumbers);
     } catch (error) {
         console.log(error);
         res.status(error.code).send(error.message);

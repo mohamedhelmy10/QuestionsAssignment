@@ -1,13 +1,17 @@
 
 const Topic = require('../models/topic');
 
-const findTopicByName = async (topicName) => {
-    return await Topic.findOne({ name: topicName }).exec();
-}
+const findAllTopics = async() => {
+    return await Topic.find();
+};
 
-const findSubTopics = async (topicLeft, topicRight) => {
-    return await Topic.find( { left: { $gte: topicLeft }, right: { $lte: topicRight } } );
-}
+const insertManyTopics = async (topics) => {
+    await Topic.insertMany(topics);
+};
 
-const TopicRepository = { findTopicByName, findSubTopics };
+const deleteAll = async () => {
+    await Topic.deleteMany({});
+};
+ 
+const TopicRepository = { findAllTopics, insertManyTopics, deleteAll };
 module.exports = TopicRepository;
