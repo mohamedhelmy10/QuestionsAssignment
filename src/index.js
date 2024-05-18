@@ -14,6 +14,10 @@ const startServer = async () => {
         await deleteAllData();
         await importDataFromExcel(process.env.Excel_FILE_PATH);
 
+        app.get('/', (req, res) => {
+            res.send('Hello, world!');
+        });
+
         app.use("/search", require("./routes/questions"));
 
         app.listen(process.env.PORT, () => {
