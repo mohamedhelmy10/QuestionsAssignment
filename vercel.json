@@ -1,1 +1,1 @@
-{ "version": 2,   "routes": [{ "src": "/src/(.*)", "dest": "/src/index.js" }], "buildCommand": "", "outputDirectory": "public" }
+{ "version": 2,   "routes": [{ "src": "/src/(.*)", "dest": "/" }], "buildCommand": "", "outputDirectory": "public" }
